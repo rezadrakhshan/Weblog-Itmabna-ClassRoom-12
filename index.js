@@ -12,4 +12,4 @@ ConnectToDb();
 
 app.use("/api", router);
 
-app.listen(port, () => console.log(`app running on port ${port}`));
+app.listen(port, () => console.log(`app runnings on port ${port}`));
