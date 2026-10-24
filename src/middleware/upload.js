@@ -2,6 +2,7 @@ import multer from "multer";
 import path from "path";
 import { fileURLToPath } from "url";
 import { v4 as uuidv4 } from "uuid";
+import { checkFileType } from "../utils/fileFilter.js";
 
 const __filename = fileURLToPath(import.meta.url);
 console.log(__filename);
@@ -17,4 +18,10 @@ const storage = multer.diskStorage({
   },
 });
 
-export const upload = multer({ storage });
+export const upload = multer({
+  storage: storage,
+  limits: { fileSize: 1000000 },
+  fileFilter: function(req, file, cb) {
+    checkFileType(file, cb);
+  }
+});
