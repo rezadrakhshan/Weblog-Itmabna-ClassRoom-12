@@ -7,7 +7,6 @@ import validationData from "../middleware/validation.js";
 
 const router = Router();
 
-router.use(validationData);
 
 router.use("/auth", SendOtpValidation, auth);
 router.use("/profile", profile);
