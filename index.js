@@ -7,9 +7,11 @@ import router from "./src/router/index.js";
 const app = e();
 const port = config.get("port");
 
+
 configurationMiddleware(app);
 ConnectToDb();
 
+app.use(e.json())
 app.use("/api", router);
 
 app.listen(port, () => console.log(`app runnings on port ${port}`));
